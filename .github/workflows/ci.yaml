@@ -40,6 +40,7 @@ jobs:
     - name: Checkout PyYAML
       uses: actions/checkout@v7
       with:
+        repository: yaml/pyyaml
         ref: ${{ inputs.pyyaml_ref }}
 
     - name: Install a python
