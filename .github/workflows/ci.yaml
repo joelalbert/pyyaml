@@ -1,9 +1,12 @@
----
 name: PyYAML Windows wheel (CPython 3.15)
 
 on:
   workflow_dispatch:
     inputs:
+      pyyaml_ref:
+        description: Tag/branch ref for PyYAML
+        type: string
+        default: 6.0.3
       libyaml_repo:
         description: Repo URL for libyaml
         type: string
@@ -36,6 +39,8 @@ jobs:
 
     - name: Checkout PyYAML
       uses: actions/checkout@v7
+      with:
+        ref: ${{ inputs.pyyaml_ref }}
 
     - name: Install a python
       uses: actions/setup-python@v7
